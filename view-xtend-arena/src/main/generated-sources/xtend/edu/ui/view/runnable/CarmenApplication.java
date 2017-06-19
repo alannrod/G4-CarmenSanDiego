@@ -1,15 +1,18 @@
 package edu.ui.view.runnable;
 
-import edu.ui.domain.CarmenSan10.Pais;
-import edu.ui.view.CarmenSan10.EditarPaisWindows;
+import edu.ui.view.CarmenSan10.MenuDeAccionesWindow;
+import edu.ui.view.runnable.CarmenBootstrap;
 import org.uqbar.arena.Application;
 import org.uqbar.arena.windows.Window;
 
 @SuppressWarnings("all")
 public class CarmenApplication extends Application {
+  public CarmenApplication(final CarmenBootstrap bootstrap) {
+    super(bootstrap);
+  }
+  
   public Window<?> createMainWindow() {
-    Pais _pais = new Pais();
-    return new EditarPaisWindows(this, _pais);
+    return new MenuDeAccionesWindow(this);
   }
   
   /**
@@ -17,7 +20,7 @@ public class CarmenApplication extends Application {
    * tanto en el createMainWindow como en main y denle run en .star
    */
   public static void main(final String[] args) {
-    CarmenApplication _carmenApplication = new CarmenApplication();
-    _carmenApplication.start();
+    CarmenBootstrap _carmenBootstrap = new CarmenBootstrap();
+    new CarmenApplication(_carmenBootstrap).start();
   }
 }

@@ -14,61 +14,57 @@ class Informante extends Ocupante {
 		nombre = "Informante"
 	}	
 
-	override responderAlDetective(Caso caso, LugarDeInteres unLugar, Pais paisActual) 
-	{	
-		switch(unLugar)
-		{
-			case LugarDeInteres.BANCO : responderAlBanco(caso, paisActual)
-			case LugarDeInteres.BIBLIOTECA : responderALaBiblioteca(caso, paisActual)
-			case LugarDeInteres.CLUB : responderAlClub(caso)
-			case LugarDeInteres.EMBAJADA : responderALaEmbajada(caso, paisActual)
-		}
+	override responderAlDetective(Caso caso, LugarDeInteres unLugar, Pais paisActual){	
+		unLugar.pistaDelLugar(caso, unLugar, paisActual)
 	}
 	
-	def responderALaEmbajada(Caso caso, Pais paisActual)
-	{
-		// 2 pistas del destino del villano
-		val proximoPais = caso.proximoDestino(paisActual)
-		proximoPais.dar2PistaDeSusCaracteristicas
-	}
 	
-	def responderAlClub(Caso caso)
-	{
-		caso.responsable.dar2PistasSeniasParticulares + " " + informacionAdicional(caso, 70)
-		// 2 señas particulares									// 70% 1 hobbie
-	}
+/******** esto no me parece que deba ir aqui **********/
+//	def responderALaEmbajada(Caso caso, Pais paisActual)
+//	{
+//		// 2 pistas del destino del villano
+//		val proximoPais = caso.proximoDestino(paisActual)
+//		proximoPais.dar2PistaDeSusCaracteristicas
+//	}
 	
-	def responderAlBanco(Caso caso, Pais paisActual)
-	{
-		val proximoPais = caso.proximoDestino(paisActual)
-		proximoPais.pistaDeSusCaracteristicas + " " + caso.responsable.pistaDeSeniasParticulares
-		// 1 pais destino								// 1 señas particulares
-	}
+//	def responderAlClub(Caso caso)
+//	{
+//		caso.responsable.dar2PistasSeniasParticulares + " " + informacionAdicional(caso, 70)
+//		// 2 señas particulares									// 70% 1 hobbie
+//	}
 	
-	def responderALaBiblioteca(Caso caso, Pais paisActual) 
-	{
-		responderAlBanco(caso, paisActual) + " " + informacionAdicional(caso, 50)
-		// lo mismo del banco						// 50% 1 hobbies
-	}
+//	def responderAlBanco(Caso caso, Pais paisActual)
+//	{
+//		val proximoPais = caso.proximoDestino(paisActual)
+//		proximoPais.pistaDeSusCaracteristicas + " " + caso.responsable.pistaDeSeniasParticulares
+//		// 1 pais destino								// 1 señas particulares
+//	}
 	
-	def informacionAdicional(Caso caso, int porcentaje) 
-	{
-		var Random rnd = new Random
-		var int adicional = rnd.nextInt(99)
-		
-		var respuesta = ""
-		
-		if (adicional > (porcentaje-1))
-		{
-			respuesta = pistaSobreHobbie(caso.responsable)
-		}
-		respuesta
-	}
+//	def responderALaBiblioteca(Caso caso, Pais paisActual) 
+//	{
+//		responderAlBanco(caso, paisActual) + " " + informacionAdicional(caso, 50)
+//		// lo mismo del banco						// 50% 1 hobbies
+//	}
 	
-	def pistaSobreHobbie(Villano villano) 
-	{
-		villano.pistaDeHobbies
-	}
+//	def informacionAdicional(Caso caso, int porcentaje) 
+//	{
+//		var Random rnd = new Random
+//		var int adicional = rnd.nextInt(99)
+//		
+//		var respuesta = ""
+//		
+//		if (adicional > (porcentaje-1))
+//		{
+//			respuesta = pistaSobreHobbie(caso.responsable)
+//		}
+//		respuesta
+//	}
+	
+//	def pistaSobreHobbie(Villano villano) 
+//	{
+//		villano.pistaDeHobbies
+//	}
+/********************************************************************/
 	
 	override actualizar(List<Pais> ps, Pais p, Villano v) 
 	{

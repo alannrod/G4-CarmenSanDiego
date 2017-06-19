@@ -1,7 +1,12 @@
 package edu.ui.view.CarmenSan10;
 
-import edu.ui.domain.CarmenSan10.Detective;
-import edu.ui.view.CarmenSan10.DialogWindow;
+import edu.ui.domain.AppModel.CarmenSandiegoAppModel;
+import edu.ui.domain.CarmenSan10.ACME;
+import edu.ui.domain.CarmenSan10.Caso;
+import edu.ui.domain.CarmenSan10.Mapamundi;
+import edu.ui.view.CarmenSan10.ExpedienteMenuDeAccionesView;
+import edu.ui.view.CarmenSan10.InicioDelJuegoWindow;
+import edu.ui.view.CarmenSan10.MapamundiWindow;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.uqbar.arena.layout.HorizontalLayout;
@@ -13,13 +18,13 @@ import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.lacar.ui.model.Action;
 
 @SuppressWarnings("all")
-public class MenuDeAccionesWindow extends SimpleWindow<Detective> {
+public class MenuDeAccionesWindow extends SimpleWindow<CarmenSandiegoAppModel> {
   /**
    * esta es la primer ventana que me aparece cuando inicio el juego,
    * la hice extender de detective, ya que son comportamientos basicos de un detective
    */
   public MenuDeAccionesWindow(final WindowOwner parent) {
-    super(parent, new Detective());
+    super(parent, new CarmenSandiegoAppModel(new Mapamundi(), new ACME()));
   }
   
   public void createMainTemplate(final Panel mainPanel) {
@@ -40,7 +45,7 @@ public class MenuDeAccionesWindow extends SimpleWindow<Detective> {
     Label _label = new Label(panelDelFormulario);
     final Procedure1<Label> _function_1 = new Procedure1<Label>() {
       public void apply(final Label it) {
-        it.setText("¿Que haremos ahora Detective?");
+        it.setText("¿Qué haremos ahora Detective?");
       }
     };
     ObjectExtensions.<Label>operator_doubleArrow(_label, _function_1);
@@ -64,6 +69,12 @@ public class MenuDeAccionesWindow extends SimpleWindow<Detective> {
     final Procedure1<Button> _function_1 = new Procedure1<Button>() {
       public void apply(final Button it) {
         it.setCaption("Mapamundi");
+        final Action _function = new Action() {
+          public void execute() {
+            MenuDeAccionesWindow.this.mapamundi();
+          }
+        };
+        it.onClick(_function);
       }
     };
     ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_1);
@@ -71,14 +82,27 @@ public class MenuDeAccionesWindow extends SimpleWindow<Detective> {
     final Procedure1<Button> _function_2 = new Procedure1<Button>() {
       public void apply(final Button it) {
         it.setCaption("Expedientes");
+        final Action _function = new Action() {
+          public void execute() {
+            MenuDeAccionesWindow.this.expediente();
+          }
+        };
+        it.onClick(_function);
       }
     };
     ObjectExtensions.<Button>operator_doubleArrow(_button_2, _function_2);
   }
   
   public void iniciarJuego() {
-    Detective _modelObject = this.getModelObject();
-    DialogWindow _dialogWindow = new DialogWindow(this, _modelObject);
-    _dialogWindow.open();
+    Caso _caso = new Caso();
+    new InicioDelJuegoWindow(this, _caso).open();
+  }
+  
+  public void mapamundi() {
+    new MapamundiWindow(this).open();
+  }
+  
+  public void expediente() {
+    new ExpedienteMenuDeAccionesView(this).open();
   }
 }

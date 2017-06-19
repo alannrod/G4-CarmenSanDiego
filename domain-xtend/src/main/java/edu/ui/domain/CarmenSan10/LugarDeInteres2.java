@@ -5,7 +5,7 @@ import edu.ui.domain.CarmenSan10.LugarDeInteres;
 import java.util.List;
 
 @TransactionalAndObservable
-public enum LugarDeInteres {
+public enum LugarDeInteres2 {
 
 	BANCO("Banco"),BIBLIOTECA("Biblioteca"),CLUB("Club"),EMBAJADA("Embajada");
 	
@@ -13,7 +13,7 @@ public enum LugarDeInteres {
 	
 	public String nombre;
 	
-	LugarDeInteres(String nombre) {
+	LugarDeInteres2(String nombre) {
 		this.nombre = nombre;
 	}
 	
