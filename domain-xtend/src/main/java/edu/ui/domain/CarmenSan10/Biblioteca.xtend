@@ -11,5 +11,9 @@ class Biblioteca extends LugarDeInteres{
 		proximoPais.pistaDeSusCaracteristicas + " " + caso.responsable.pistaDeSeniasParticulares +  " " + informacionAdicional(caso, 50)
 		// 1 pais destino								// 1 señas particulares				         		// 50% 1 hobbies
 	}
+	
+	override seEncuentraElVillano(Pais pais) {
+		pais.lugarDelVillano.nombre == nombre
+	}
 		
 }

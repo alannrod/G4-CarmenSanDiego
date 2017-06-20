@@ -20,11 +20,21 @@ class TestPais {
 	
 	Caso hard
 	
+	LugarDeInteres banco
+	LugarDeInteres biblioteca
+	LugarDeInteres club
+	LugarDeInteres embajada
+	
 	@Before
 	def void setUp() {
 		
-		val lugares01 = #[LugarDeInteres.BANCO, LugarDeInteres.BIBLIOTECA, LugarDeInteres.CLUB]
-		val lugares02 = #[LugarDeInteres.EMBAJADA]
+		banco = new Banco()
+		biblioteca = new Biblioteca()
+		club = new Club()
+		embajada = new Embajada()
+		
+		val lugares01 = #[banco,biblioteca, club]
+		val lugares02 = #[embajada]
 		
 		argentina = new Pais("Argentina", lugares01, #[])
 							

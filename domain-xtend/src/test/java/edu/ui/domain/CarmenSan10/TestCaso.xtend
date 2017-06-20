@@ -48,35 +48,45 @@ class TestCaso
 	Caso casoFeliz
 	Caso casoInfeliz
 	
+	LugarDeInteres biblioteca
+	LugarDeInteres club
+	LugarDeInteres embajada
+	LugarDeInteres banco
+	
 	@Before
 	def void setUp() {
 		////////////////////////////////////////////////////////////////////////
+		biblioteca = new Biblioteca()
+		club = new Club()
+		embajada = new Embajada()
+		banco = new Banco()
+		
 		
 		lugaresArg = new ArrayList<LugarDeInteres>()
 		
-		lugaresArg.add(LugarDeInteres.BIBLIOTECA)
-		lugaresArg.add(LugarDeInteres.CLUB)
-		lugaresArg.add(LugarDeInteres.EMBAJADA)
+		lugaresArg.add(biblioteca)
+		lugaresArg.add(club)
+		lugaresArg.add(embajada)
 		
 		lugaresBo = new ArrayList<LugarDeInteres>()
-		lugaresBo.add(LugarDeInteres.BANCO)
-		lugaresBo.add(LugarDeInteres.CLUB)
-		lugaresBo.add(LugarDeInteres.EMBAJADA)
+		lugaresBo.add(banco)
+		lugaresBo.add(club)
+		lugaresBo.add(embajada)
 		
 		lugaresMx = new ArrayList<LugarDeInteres>()
-		lugaresMx.add(LugarDeInteres.BANCO)
-		lugaresMx.add(LugarDeInteres.BIBLIOTECA)
-		lugaresMx.add(LugarDeInteres.EMBAJADA)
+		lugaresMx.add(banco)
+		lugaresMx.add(biblioteca)
+		lugaresMx.add(embajada)
 		
 		lugaresVe = new ArrayList<LugarDeInteres>()
-		lugaresVe.add(LugarDeInteres.BANCO)
-		lugaresVe.add(LugarDeInteres.CLUB)
-		lugaresVe.add(LugarDeInteres.EMBAJADA)
+		lugaresVe.add(banco)
+		lugaresVe.add(club)
+		lugaresVe.add(embajada)
 		
 		lugaresBr = new ArrayList<LugarDeInteres>()
-		lugaresBr.add(LugarDeInteres.BANCO)
-		lugaresBr.add(LugarDeInteres.CLUB)
-		lugaresBr.add(LugarDeInteres.BIBLIOTECA)
+		lugaresBr.add(banco)
+		lugaresBr.add(club)
+		lugaresBr.add(biblioteca)
 		
 		
 		venezuela = new Pais("Venezuela", lugaresVe, conexionesVe)

@@ -11,6 +11,10 @@ import edu.ui.domain.CarmenSan10.LugarDeInteres
 import edu.ui.domain.CarmenSan10.Caso
 import edu.ui.domain.CarmenSan10.Detective
 import java.util.List
+import edu.ui.domain.CarmenSan10.Biblioteca
+import edu.ui.domain.CarmenSan10.Club
+import edu.ui.domain.CarmenSan10.Embajada
+import edu.ui.domain.CarmenSan10.Banco
 
 @Accessors
 class CarmenSan10Dummy 
@@ -27,21 +31,45 @@ class CarmenSan10Dummy
 		 * Mapamundi - Paises
 		 */	
 		mapamundi = new Mapamundi
+		val biblioteca = new Biblioteca ()
+		val club = new Club ()
+		val embajada = new Embajada()
+		val banco = new Banco()
+		val lugares01 = new ArrayList<LugarDeInteres>() 
+		lugares01.add(embajada)
+		lugares01.add(biblioteca)
+		lugares01.add(club)
 		
-		// diff entre val y var?
-		val venezuela = new Pais("Venezuela", #[LugarDeInteres.EMBAJADA, LugarDeInteres.BIBLIOTECA, LugarDeInteres.CLUB], new ArrayList<Pais>())
+		val lugares02 = new ArrayList<LugarDeInteres>() 
+		lugares02.add(embajada)
+		lugares02.add(banco)
+		lugares02.add(club)
+		
+		val lugares03 = new ArrayList<LugarDeInteres>() 
+		lugares03.add(embajada)
+		lugares03.add(biblioteca)
+		lugares03.add(banco)
+		
+		val lugares04 = new ArrayList<LugarDeInteres>() 
+		lugares04.add(banco)
+		lugares04.add(biblioteca)
+		lugares04.add(club)
+		
+		
+			
+		val venezuela = new Pais("Venezuela",lugares01, new ArrayList<Pais>())
 		venezuela.caracteristicaPais = #[new Caracteristicas("Maduro a la cabeza"), new Caracteristicas("Su lider cosmico supremo habla con los pajaritos")]
 		
 		
-		val brazil = new Pais("Brazil", #[LugarDeInteres.EMBAJADA, LugarDeInteres.BANCO, LugarDeInteres.CLUB], #[venezuela]) => [
+		val brazil = new Pais("Brazil",lugares02, #[venezuela]) => [
 			caracteristicaPais = #[new Caracteristicas("Joga bonito"), new Caracteristicas("Su bandera es verde y amarilla")]
 		]
 		
-		val argentina = new Pais("Argentina", #[LugarDeInteres.EMBAJADA, LugarDeInteres.BIBLIOTECA, LugarDeInteres.BANCO], #[venezuela, brazil]) => [
+		val argentina = new Pais("Argentina", lugares03, #[venezuela, brazil]) => [
 			caracteristicaPais = #[new Caracteristicas("Bandera azul y blanca"), new Caracteristicas("Su arbol nacional es el Ceibo")]
 		]
 		
-		val uruguay = new Pais("Uruguay", #[LugarDeInteres.BANCO, LugarDeInteres.BIBLIOTECA, LugarDeInteres.CLUB], #[venezuela, brazil, argentina]) => [
+		val uruguay = new Pais("Uruguay", lugares04, #[venezuela, brazil, argentina]) => [
 			caracteristicaPais = #[new Caracteristicas("A toda hora mate :D"), new Caracteristicas("Es una una provincia de Argentina")]
 		]
 		

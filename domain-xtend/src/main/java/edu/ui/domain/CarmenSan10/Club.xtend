@@ -12,4 +12,8 @@ class Club extends LugarDeInteres {
 		// 2 señas particulares									// 70% 1 hobbie
 	}
 	
+	override seEncuentraElVillano(Pais pais) {
+		pais.lugarDelVillano.nombre == nombre
+	}
+	
 }

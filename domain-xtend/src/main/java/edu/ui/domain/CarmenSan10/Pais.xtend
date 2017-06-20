@@ -181,7 +181,13 @@ class Pais extends Entity implements Cloneable {
 		panama.ocupante = new Informante()
 		panama.caracteristicaPais = #[feature01_panama, feature02_panama, feature03_panama]
 		
-		val lugares02 = #[LugarDeInteres.BIBLIOTECA, LugarDeInteres.CLUB, LugarDeInteres.EMBAJADA]
+		val biblioteca = new Biblioteca ()
+		val club = new Club ()
+		val embajada = new Embajada()
+		val lugares02 = new ArrayList<LugarDeInteres>() 
+		lugares02.add(biblioteca)
+		lugares02.add(club)
+		lugares02.add(embajada)
 	
 		val venezuela = new Pais("Venezuela")
 		venezuela.lugares = lugares02

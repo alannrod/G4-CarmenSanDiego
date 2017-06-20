@@ -14,4 +14,8 @@ class Embajada extends LugarDeInteres {
 		proximoPais.dar2PistaDeSusCaracteristicas
 	}
 	
+	override seEncuentraElVillano(Pais pais) {
+		pais.lugarDelVillano.nombre == nombre
+	}
+	
 }

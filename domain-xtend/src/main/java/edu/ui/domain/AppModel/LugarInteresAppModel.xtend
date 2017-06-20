@@ -34,7 +34,7 @@ class LugarInteresAppModel
 	
 	def preguntarAlOcupante()
 	{
-		//lugar.responderAlDetective(detective.ubicacionActual)
+		lugar.responderAlDetective(detective.ubicacionActual, caso)
 	}
 
 	def ordenDeArresto()
@@ -44,8 +44,7 @@ class LugarInteresAppModel
 	
 	def esElFinDelJuego() 
 	{
-		// Implementarlo bien
-		//caso.esElFinDelCaso(detective.ubicacionActual) && lugar.seEncuentraElVillano()
+		caso.esElFinDelCaso(detective.ubicacionActual) && lugar.seEncuentraElVillano(detective.ubicacionActual)
 	}
 	
 	

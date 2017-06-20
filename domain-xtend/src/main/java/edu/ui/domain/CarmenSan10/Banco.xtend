@@ -13,4 +13,8 @@ class Banco extends LugarDeInteres {
 		// 1 pais destino								// 1 señas particulares
 	}
 	
+	override seEncuentraElVillano(Pais pais) {
+		pais.lugarDelVillano.nombre == nombre
+	}
+	
 }

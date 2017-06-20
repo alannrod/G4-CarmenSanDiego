@@ -31,4 +31,12 @@ abstract class LugarDeInteres {
 	{
 		villano.pistaDeHobbies
 	}
+	
+	def abstract boolean seEncuentraElVillano(Pais pais)	
+	
+	def void responderAlDetective(Pais pais,Caso caso){
+		var o = pais.ocupante
+		o.responderAlDetective( caso, this, pais)
+	}
+	
 }
