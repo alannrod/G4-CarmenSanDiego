@@ -1,4 +1,0 @@
-carmenApp.controller('MapamundiController', function () 
-{ 
-
-});

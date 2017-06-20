@@ -8,6 +8,9 @@ import edu.ui.domain.CarmenSan10.Villano
 import edu.ui.domain.Repo.RepoVillanos
 import edu.ui.domain.CarmenSan10.LugarDeInteres
 import edu.ui.domain.CarmenSan10.Caracteristicas
+import edu.ui.domain.CarmenSan10.Banco
+import edu.ui.domain.CarmenSan10.Biblioteca
+import edu.ui.domain.CarmenSan10.Club
 
 class CarmenBootstrap extends CollectionBasedBootstrap{
 	
@@ -20,13 +23,14 @@ class CarmenBootstrap extends CollectionBasedBootstrap{
 		val repoMapamundi = ApplicationContext.instance.getSingleton(typeof(Pais)) as RepoMapamundi
 		val repoVillanos = ApplicationContext.instance.getSingleton(typeof(Villano)) as RepoVillanos
 		
-		val lugar1 = LugarDeInteres.BANCO
-		val lugar11 = LugarDeInteres.BIBLIOTECA
-		val lugar12 = LugarDeInteres.CLUB
 		
-		val lugar2 = LugarDeInteres.BIBLIOTECA
-		val lugar21 = LugarDeInteres.BANCO
-		val lugar22 = LugarDeInteres.CLUB
+		val lugar1 = new Banco()
+		val lugar11 = new Biblioteca()
+		val lugar12 = new Club()
+		
+		val lugar2 = new Biblioteca()
+		val lugar21 = new Banco()
+		val lugar22 = new Club()
 		
 		val feature1 = new Caracteristicas => [
 			nombre = "bandera amarillo y verde"
