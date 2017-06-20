@@ -170,4 +170,8 @@ class Caso
 		doc.ultimoLugarVisitado == lugarDelVillano 
 	}
 	
+	
+	
+	
+
 }

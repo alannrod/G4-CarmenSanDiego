@@ -1,6 +1,6 @@
 package edu.ui.view.runnable;
 
-import edu.ui.view.CarmenSan10.MenuDeAccionesWindow;
+import edu.ui.view.CarmenSan10.MenuWindow;
 import edu.ui.view.runnable.CarmenBootstrap;
 import org.uqbar.arena.Application;
 import org.uqbar.arena.windows.Window;
@@ -12,7 +12,7 @@ public class CarmenApplication extends Application {
   }
   
   public Window<?> createMainWindow() {
-    return new MenuDeAccionesWindow(this);
+    return new MenuWindow(this);
   }
   
   /**

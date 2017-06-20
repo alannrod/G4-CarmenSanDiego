@@ -10,7 +10,10 @@ class CarmenSandiegoAppModel
 	private Mapamundi mapamundi
 	private ACME acme
 	
-	new () {}
+	new () {
+		mapamundi = new Mapamundi()
+		acme = new ACME()
+	}
 	
 	new (Mapamundi mapa, ACME a)
 	{

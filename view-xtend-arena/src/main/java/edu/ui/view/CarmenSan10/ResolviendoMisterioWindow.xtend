@@ -8,6 +8,7 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import edu.ui.domain.AppModel.LugarInteresAppModel
 
 class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppModel>
 {
@@ -24,7 +25,7 @@ class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppModel>
 			
 			val left = new Panel(it) => [
 				
-				new Label(it).text = "Estás en:" // + modelObject.nombrePaisActual
+				new Label(it).text = "Estás en:"  //+ modelObject.nombrePaisActual
 				
 				new Button(it) => [
 					caption = "Orden De Arresto"
@@ -71,24 +72,26 @@ class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppModel>
 		]
 		
 		new Label(generalPanel).text = "Recorrido criminal:"
-		new Label(generalPanel).text = modelObject.recorridoCriminal
+		new Label(generalPanel).text = modelObject.recorridoCriminal.toString
 		
 	}
 	
 	def abrir3erLugarDeInteres() 
 	{
-		new LugaresWindow(this, modelObject.el3erLugarDeInteres).open
+		var lugarApp = new LugarInteresAppModel(modelObject.el3erLugarDeInteres,modelObject.caso) 
+		new LugaresWindow(this,lugarApp ).open
 	}
 	
 	def abrir2erLugarDeInteres() 
 	{
-		new LugaresWindow(this, modelObject.el2erLugarDeInteres).open
+		var lugarApp = new LugarInteresAppModel(modelObject.el2doLugarDeInteres,modelObject.caso) 
+		new LugaresWindow(this,lugarApp ).open
 	}
 	
 	protected def void abrir1erLugarDeInteres() 
 	{
-		
-		new LugaresWindow(this, modelObject.el1erLugarDeInteres).open
+		var lugarApp = new LugarInteresAppModel(modelObject.el1erLugarDeInteres,modelObject.caso) 
+		new LugaresWindow(this,lugarApp ).open
 	}
 	
 	def verExpedientes() 

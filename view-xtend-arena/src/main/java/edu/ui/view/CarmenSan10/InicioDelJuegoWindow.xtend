@@ -1,50 +1,114 @@
 package edu.ui.view.CarmenSan10
 
-import edu.ui.domain.CarmenSan10.Caso
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Button
-import edu.ui.domain.CarmenSan10.Detective
-import edu.ui.domain.CarmenSan10.ACME
-import org.uqbar.arena.layout.VerticalLayout
-import org.uqbar.arena.layout.ColumnLayout
 import edu.ui.domain.AppModel.ResolverMisterioAppModel
+import org.uqbar.arena.layout.HorizontalLayout
+import edu.ui.domain.AppModel.CasoAppModel
+import org.uqbar.arena.layout.ColumnLayout
 
-class InicioDelJuegoWindow extends SimpleWindow<Caso> 
+class InicioDelJuegoWindow extends SimpleWindow<CasoAppModel> 
 {
-	new(WindowOwner parent, Caso model) 
+	new(WindowOwner parent) 
 	{
-		super(parent, model)
+		super(parent, new CasoAppModel)
+		title = this.modelObject.titulo
+	}
+	
+	
+	
+	override protected addActions(Panel mainPanel) {
+		//dejado en blanco intencionalmente
+	}
+	
+	override protected createFormPanel(Panel mainPanel) {
+		new Panel(mainPanel) => [
+			//por defecto vertical layout
+			crearPanelDeInvitacion(it)
+			crearPanelDeDescripcion(it)
+			crearPanelDeOpciones(it)
+		]
 		
 	}
-	
-	override createFormPanel(Panel mainPanel) 
-	{
-		title = "Robo del Faraón"
-		// title = model.objetoDelRobo
-		val panelDelCaso = new Panel(mainPanel)
-		panelDelCaso.layout = new VerticalLayout()
-		new Label(panelDelCaso).text = "Detective, tenemos un caso para usted!"
-		val detalleDelCaso = new Panel(panelDelCaso)
-		detalleDelCaso.layout = new VerticalLayout
-		//new Label(detalleDelCaso).text = modelObject.reporteDelActoCriminal
-		new Label(detalleDelCaso).text = "A las 9 de la mañana en la ciudad del Cairo la comunidad científica fue conmovida al darse cuenta del bla bla bla"
+
+	def crearPanelDeInvitacion(Panel mainPanel) {
+		new Panel(mainPanel) => [
+			new Label(it) => [
+				text = "Detective, tenemos un caso para usted!"
+				fontSize = 11				
+			]				
+		]
+	}
+		
+	def crearPanelDeDescripcion(Panel mainPanel) {
+		new Panel(mainPanel) => [
+			layout = new ColumnLayout(1)
+			width  = 200
+			new Label(it) => [
+				text = this.modelObject.descripcion
+				fontSize = 11		
+			]		
+		]
 	}
 	
-	override addActions(Panel actionsPanel) 
-	{
-		new Button(actionsPanel) => [
-			caption = "Aceptar el caso"
-			onClick [ | resolverMisterio ]
+	def crearPanelDeOpciones(Panel mainPanel) {
+		new Panel(mainPanel) => [
+			layout = new HorizontalLayout
+			new Button(it) => [
+				caption = "Aceptar el caso"
+				setAsDefault
+				onClick[ | new ResolviendoMisterioWindow(this, new ResolverMisterioAppModel()).open ]
 			]
+			new Button(it) => [
+				caption = "Cancelar"
+				setAsDefault
+				onClick[ | this.close]
+			]
+		]
 	}
 	
-	def resolverMisterio() 
-	{
-		//val caso = modelObject.caso
-		//new DialogWindow(this, new Detective).open
-		new ResolviendoMisterioWindow(this, new ResolverMisterioAppModel()).open
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	override createFormPanel(Panel mainPanel) 
+//	{
+//		title = "Robo del Faraón"
+//		// title = model.objetoDelRobo
+//		val panelDelCaso = new Panel(mainPanel)
+//		panelDelCaso.layout = new VerticalLayout()
+//		new Label(panelDelCaso).text = "Detective, tenemos un caso para usted!"
+//		val detalleDelCaso = new Panel(panelDelCaso)
+//		detalleDelCaso.layout = new VerticalLayout
+//		//new Label(detalleDelCaso).text = modelObject.reporteDelActoCriminal
+//		new Label(detalleDelCaso).text = "A las 9 de la mañana en la ciudad del Cairo la comunidad científica fue conmovida al darse cuenta del bla bla bla"
+//	}
+//	
+//	override addActions(Panel actionsPanel) 
+//	{
+//		new Button(actionsPanel) => [
+//			caption = "Aceptar el caso"
+//			onClick [ | resolverMisterio ]
+//			]
+//	}
+//	
+//	def resolverMisterio() 
+//	{
+//		//val caso = modelObject.caso
+//		//new DialogWindow(this, new Detective).open
+//		new ResolviendoMisterioWindow(this, new ResolverMisterioAppModel()).open
+//	}
 }

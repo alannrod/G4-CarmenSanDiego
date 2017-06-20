@@ -60,21 +60,24 @@ class ResolverMisterioAppModel
 	
 	def LugarDeInteres el1erLugarDeInteres() {
 		// devuelve el 1er lugar de interes
+		paisSeleccionado.lugares.findFirst[]
 	}
 	
-	def LugarDeInteres el2erLugarDeInteres() 
+	def LugarDeInteres el2doLugarDeInteres() 
 	{
-		//throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		//accedo arbitrariamente al segundo lugar de interes
+		paisSeleccionado.lugares.get(1)
 	}
 	
 	def LugarDeInteres el3erLugarDeInteres() 
 	{
-		//throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		//busca el ultimo lugar de interes
+		paisSeleccionado.lugares.findLast[]
 	}
 	
 	def recorridoCriminal()
 	{
-		var nombrePaises = acme.nombreDeLosVillanos
+		acme.caso.planDeEscape
 	}
 	
 }
