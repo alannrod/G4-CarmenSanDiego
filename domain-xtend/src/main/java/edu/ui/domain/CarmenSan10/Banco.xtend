@@ -4,7 +4,7 @@ package edu.ui.domain.CarmenSan10
 class Banco extends LugarDeInteres {
 	
 	new(){
-		nombre = "Banco"
+		nombreLugar = "Banco"
 	}
 	
 	override pistaDelLugar(Caso caso, LugarDeInteres unLugar, Pais paisActual) {
@@ -13,8 +13,5 @@ class Banco extends LugarDeInteres {
 		// 1 pais destino								// 1 señas particulares
 	}
 	
-	override seEncuentraElVillano(Pais pais) {
-		pais.lugarDelVillano.nombre == nombre
-	}
 	
 }

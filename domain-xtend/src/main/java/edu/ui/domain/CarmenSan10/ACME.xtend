@@ -24,6 +24,13 @@ class ACME
 		resolvedorDeCasos = resolvedor
 	}
 	
+	new (Expediente expediente, Detective resolvedor, Caso unCaso) 
+	{
+		villanos = expediente
+		resolvedorDeCasos = resolvedor
+		caso = unCaso
+	}
+	
 	/*
 	new(Detective resolvedor) { Preguntaar
 		expedientes = new ArrayList<Villano>()

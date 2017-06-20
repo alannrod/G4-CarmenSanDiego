@@ -7,7 +7,7 @@ import java.util.Random
 @Accessors
 abstract class LugarDeInteres {
 
-	String nombre
+	String nombreLugar
 	String pista
 	
 	
@@ -31,8 +31,10 @@ abstract class LugarDeInteres {
 	{
 		villano.pistaDeHobbies
 	}
-	
-	def abstract boolean seEncuentraElVillano(Pais pais)	
+		
+	def seEncuentraElVillano(Pais pais) {
+		pais.lugarDelVillano.nombreLugar == nombreLugar
+	}
 	
 	def void responderAlDetective(Pais pais,Caso caso){
 		var o = pais.ocupante

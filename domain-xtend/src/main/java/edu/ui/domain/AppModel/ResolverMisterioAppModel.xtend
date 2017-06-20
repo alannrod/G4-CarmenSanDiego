@@ -4,18 +4,25 @@ import edu.ui.domain.CarmenSan10.ACME
 import edu.ui.domain.CarmenSan10.Pais
 import edu.ui.domain.CarmenSan10.Villano
 import edu.ui.domain.CarmenSan10.LugarDeInteres
+import edu.ui.domain.CarmenSan10.Caso
 
 class ResolverMisterioAppModel 
 {
 	ACME acme
 	Pais paisSeleccionado
 	Villano villanoSeleccionado
+	Caso casoSeleccionado
 	
 	new(){}
+	
 	
 	new(ACME acme)
 	{
 		this.acme = acme
+	}
+	
+	new(CasoAppModel model) {
+		acme = new ACME (model.dummy.expediente,model.dummy.doc,model.dummy.caso)
 	}
 	
 	def getCaso()

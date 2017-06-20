@@ -2,12 +2,16 @@ package edu.ui.domain.AppModel
 
 import edu.ui.domain.CarmenSan10.Caso
 import edu.ui.domain.Dummy.CarmenSan10Dummy
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 class CasoAppModel {
-	private Caso caso
+	Caso caso
+	private CarmenSan10Dummy datos
 	
 	new () {
-		caso= new CarmenSan10Dummy().caso
+		datos= new CarmenSan10Dummy()
+		caso = datos.caso
 	}
 	
 	
@@ -20,4 +24,9 @@ class CasoAppModel {
 	{
 		caso.reporteDelActoCriminal
 	}
+	
+	def dummy() {
+		datos
+	}
+	
 }

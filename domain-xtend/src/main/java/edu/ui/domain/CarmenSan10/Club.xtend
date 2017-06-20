@@ -4,7 +4,7 @@ package edu.ui.domain.CarmenSan10
 class Club extends LugarDeInteres {
 	
 	new(){
-		nombre = "Club"
+		nombreLugar = "Club"
 	}
 	
 	override pistaDelLugar(Caso caso, LugarDeInteres unLugar, Pais paisActual) {
@@ -12,8 +12,5 @@ class Club extends LugarDeInteres {
 		// 2 señas particulares									// 70% 1 hobbie
 	}
 	
-	override seEncuentraElVillano(Pais pais) {
-		pais.lugarDelVillano.nombre == nombre
-	}
 	
 }

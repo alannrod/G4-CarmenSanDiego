@@ -9,12 +9,14 @@ import java.io.Serializable
 import java.util.List
 //import org.uqbar.commons.utils.Dependencies
 import org.uqbar.commons.model.ObservableUtils
+import edu.ui.domain.CarmenSan10.LugarDeInteres
 
 @Accessors
 @Observable
 class MapamundiAppModel implements Serializable{
 	
 	Pais itemSeleccionado
+	List<LugarDeInteres> lugares
 	
 	/**
 	 * Todos los application model deben anotarse con @Observable.

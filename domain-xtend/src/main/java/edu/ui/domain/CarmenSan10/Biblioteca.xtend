@@ -3,7 +3,7 @@ package edu.ui.domain.CarmenSan10
 class Biblioteca extends LugarDeInteres{
 	
 	new(){
-		nombre = "Biblioteca"
+		nombreLugar = "Biblioteca"
 	}
 	
 	override pistaDelLugar(Caso caso, LugarDeInteres unLugar, Pais paisActual) {
@@ -12,8 +12,6 @@ class Biblioteca extends LugarDeInteres{
 		// 1 pais destino								// 1 señas particulares				         		// 50% 1 hobbies
 	}
 	
-	override seEncuentraElVillano(Pais pais) {
-		pais.lugarDelVillano.nombre == nombre
-	}
+	
 		
 }

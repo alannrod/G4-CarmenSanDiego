@@ -47,12 +47,10 @@ class MenuWindow extends SimpleWindow<CarmenSandiegoAppModel> {
 			]
 			new Button(it) => [
 				caption = "Mapamundi"
-				setAsDefault
 				onClick[ | new MapamundiWindow(this).open]
 			]
 			new Button(it) => [
 				caption = "Expedientes"
-				setAsDefault
 				onClick[ | new ExpedienteMenuDeAccionesView(this).open ]
 			]
 		]

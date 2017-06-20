@@ -8,7 +8,6 @@ import org.uqbar.arena.widgets.Button
 import edu.ui.domain.AppModel.ResolverMisterioAppModel
 import org.uqbar.arena.layout.HorizontalLayout
 import edu.ui.domain.AppModel.CasoAppModel
-import org.uqbar.arena.layout.ColumnLayout
 
 class InicioDelJuegoWindow extends SimpleWindow<CasoAppModel> 
 {
@@ -45,7 +44,6 @@ class InicioDelJuegoWindow extends SimpleWindow<CasoAppModel>
 		
 	def crearPanelDeDescripcion(Panel mainPanel) {
 		new Panel(mainPanel) => [
-			layout = new ColumnLayout(1)
 			width  = 200
 			new Label(it) => [
 				text = this.modelObject.descripcion
@@ -60,11 +58,14 @@ class InicioDelJuegoWindow extends SimpleWindow<CasoAppModel>
 			new Button(it) => [
 				caption = "Aceptar el caso"
 				setAsDefault
-				onClick[ | new ResolviendoMisterioWindow(this, new ResolverMisterioAppModel()).open ]
+				onClick[ 
+					val nextModel = new ResolverMisterioAppModel(modelObject)
+					val window = new ResolviendoMisterioWindow(this, nextModel)
+					window.open()
+				]
 			]
 			new Button(it) => [
 				caption = "Cancelar"
-				setAsDefault
 				onClick[ | this.close]
 			]
 		]
