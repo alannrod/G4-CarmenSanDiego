@@ -35,4 +35,19 @@ class RepoVillanos extends CollectionBasedRepo<Villano>{
 	override def Predicate<Villano> getCriterio(Villano example) {
 		null
 	}
+	
+	def search(String nombre) {
+		allInstances.filter[villano| this.match(nombre, villano.nombre)].toList
+	}
+	
+	def match(Object nombre, Object pNombre) {
+		if (nombre == null) {
+			return true
+		}
+		if (pNombre == null) {
+			return false
+		}
+		pNombre.toString.toLowerCase.contains(nombre.toString.toLowerCase)
+	}
+	
 }

@@ -29,7 +29,7 @@ class LugarInteresAppModel
 	
 	def nombreDelLugar()
 	{
-		lugar.nombre
+		lugar.nombreLugar
 	}
 	
 	def preguntarAlOcupante()

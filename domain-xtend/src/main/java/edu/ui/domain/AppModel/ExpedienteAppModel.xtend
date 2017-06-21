@@ -33,4 +33,12 @@ class ExpedienteAppModel implements Serializable {
 		
 	}
 	
+	def search() {
+		villanosRepo.search(selectedVillano.nombre)
+	}
+	
+	def void setTodosLosVillanos(List<Villano> villanos) {}
+	
+	
+	
 }

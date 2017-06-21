@@ -14,7 +14,7 @@ import org.apache.commons.lang.StringUtils
 class Villano extends Ocupante {
 	
 	Integer id
-	//String nombre
+	String nombre
 	String sexo
 	List<Caracteristicas> seniasParticulares
 	List<Caracteristicas> hobbies
