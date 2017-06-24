@@ -11,6 +11,7 @@ import org.uqbar.arena.widgets.Button
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.tables.Column
+import edu.ui.domain.CarmenSan10.LugarDeInteres
 
 class EditorLugarInteresWindow extends EditorSuperConexion {
 	
@@ -25,14 +26,14 @@ class EditorLugarInteresWindow extends EditorSuperConexion {
 	override protected createFormPanel(Panel mainPanel) {
 		val general = new Panel(mainPanel)
 		
-		val table = new Table<Pais>(general, typeof(Pais)) => [
+		val table = new Table<LugarDeInteres>(general, typeof(LugarDeInteres)) => [
 			
 			items <=> "lugares"
 		]
 		
-		new Column<Pais>(table) => [
-			title = "Característica"
-			bindContentsToProperty("nombreLugares")
+		new Column<LugarDeInteres>(table) => [
+			title = "Lugares"
+			bindContentsToProperty("nombreLugar")
 		]
 		
 		new Button(general) => [

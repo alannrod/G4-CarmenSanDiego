@@ -122,6 +122,7 @@ class Pais extends Entity implements Cloneable {
 		var int lugar = rnd.nextInt(3)
 		lugares.get(lugar)
 	}
+
 	
 	def pistaDeSusCaracteristicas() 
 	{

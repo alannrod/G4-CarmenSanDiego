@@ -14,6 +14,7 @@ class PaisAppModel implements Serializable{
 	String featureSelected
 	//LugarDeInteres lugarSelected
 	Pais paisSelected
+	Pais itemSeleccionado
 	Caracteristicas nueva = new Caracteristicas
 	
 	/**

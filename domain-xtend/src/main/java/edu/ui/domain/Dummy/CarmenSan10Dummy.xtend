@@ -153,6 +153,8 @@ class CarmenSan10Dummy
 		  * Detective
 		  */
 		doc = new Detective()
+		doc.recorrido.add(argentina)
+
 		
 	}
 	

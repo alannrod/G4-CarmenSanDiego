@@ -190,8 +190,8 @@ class TestCaso
 		
 		val lugarResultante = caso.lugarDondeSeEncuentraElVillano(planDeEscape.last)
 		
-		println(lugarResultante.nombre)
-		Assert.assertTrue(lugarResultante.nombre.equals(lugarResultante.nombre))
+		println(lugarResultante.nombreLugar)
+		Assert.assertTrue(lugarResultante.nombreLugar.equals(lugarResultante.nombreLugar))
 	}
 	
 	@Test
