@@ -114,7 +114,7 @@ class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppModel>
 		new Panel(panel) => [
 			new Button(it) => [
 				caption = interes.nombreLugar
-				onClick ([|var lugarApp = new LugarInteresAppModel(interes,modelObject.caso)
+				onClick ([|var lugarApp = new LugarInteresAppModel(interes,modelObject.caso,this.modelObject.detective)
 					new LugaresWindow(this,lugarApp ).open ])
 			]
 		]

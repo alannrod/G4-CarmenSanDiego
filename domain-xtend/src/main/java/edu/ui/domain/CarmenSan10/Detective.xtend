@@ -15,6 +15,7 @@ import org.uqbar.commons.utils.Observable
 class Detective 
 {
 	private var List<Pais> recorrido
+	private var List<Pais> destinosFallidos
 	private var String ordenDeArresto
 	List<LugarDeInteres> lugaresVisitados // puede que no lo necesite.
 	// lugaresVisitados estaba pensado para que pueda consultar la pista correspondiente al ultimo lugar que estoy visitando...
@@ -193,6 +194,12 @@ class Detective
 		{
 			paises.add(pais)
 		}	
+	}
+	def agregarDestinosFallidos(Pais p){
+		this.destinosFallidos.add(p)
+	}
+	def verDestinosFallidos(){
+		this.destinosFallidos
 	}
 	
 }

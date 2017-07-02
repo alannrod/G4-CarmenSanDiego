@@ -16,10 +16,16 @@ class LugarInteresAppModel
 	
 	new(){}
 	
-	new(LugarDeInteres lugar, Caso caso)
+	new(LugarDeInteres lugar, Caso elCaso)
 	{
 		this.lugar = lugar
-		this.caso = caso
+		this.caso = elCaso
+	}
+	
+	new(LugarDeInteres interes, Caso unCaso, Detective unDetective) {
+		this.lugar = interes
+		this.caso = unCaso
+		this.detective = unDetective
 	}
 	
 	def nombreDelCaso()
@@ -46,6 +52,8 @@ class LugarInteresAppModel
 	{
 		caso.esElFinDelCaso(detective.ubicacionActual) && lugar.seEncuentraElVillano(detective.ubicacionActual)
 	}
-	
+	def habemusVillano(){
+		this.lugar.seEncuentraElVillano(detective.ubicacionActual)
+	}
 	
 }

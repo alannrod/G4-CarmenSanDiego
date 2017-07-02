@@ -66,11 +66,11 @@ class ViajarWindow extends SimpleWindow<ResolverMisterioAppModel>{
 			layout = new ColumnLayout(2)
 			new Button(it) => [
 				caption = "Volver al Pais anterior"
-				onClick ([|dosAcciones])
+				onClick ([|this.modelObject.regresarAlPaisAnterior])
 			]
 			new Button(it) => [
 				caption = "Viajar"
-				onClick ([|dosAcciones])
+				onClick ([|this.modelObject.viajar])
 			]
 			
 		]

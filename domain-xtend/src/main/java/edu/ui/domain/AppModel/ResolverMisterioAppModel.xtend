@@ -7,9 +7,11 @@ import edu.ui.domain.CarmenSan10.LugarDeInteres
 import edu.ui.domain.CarmenSan10.Caso
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
+import org.uqbar.commons.model.ObservableUtils
 
 @Accessors
 @Observable
+@SuppressWarnings("all")
 class ResolverMisterioAppModel 
 {
 	ACME acme
@@ -76,7 +78,7 @@ class ResolverMisterioAppModel
 	}
 	
 	def paisesFallidos(){
-		this.detective.destinosFallidos(acme.caso.planDeEscape)
+		this.detective.verDestinosFallidos
 	}
 	
 	def villanos(){

@@ -36,7 +36,7 @@ abstract class LugarDeInteres {
 		pais.lugarDelVillano.nombreLugar == nombreLugar
 	}
 	
-	def void responderAlDetective(Pais pais,Caso caso){
+	def responderAlDetective(Pais pais,Caso caso){
 		var o = pais.ocupante
 		o.responderAlDetective( caso, this, pais)
 	}

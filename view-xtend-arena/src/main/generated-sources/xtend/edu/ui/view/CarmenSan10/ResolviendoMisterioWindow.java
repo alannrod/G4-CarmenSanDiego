@@ -223,7 +223,9 @@ public class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppM
               public void execute() {
                 ResolverMisterioAppModel _modelObject = ResolviendoMisterioWindow.this.getModelObject();
                 Caso _caso = _modelObject.getCaso();
-                LugarInteresAppModel lugarApp = new LugarInteresAppModel(interes, _caso);
+                ResolverMisterioAppModel _modelObject_1 = ResolviendoMisterioWindow.this.getModelObject();
+                Detective _detective = _modelObject_1.getDetective();
+                LugarInteresAppModel lugarApp = new LugarInteresAppModel(interes, _caso, _detective);
                 LugaresWindow _lugaresWindow = new LugaresWindow(ResolviendoMisterioWindow.this, lugarApp);
                 _lugaresWindow.open();
               }
