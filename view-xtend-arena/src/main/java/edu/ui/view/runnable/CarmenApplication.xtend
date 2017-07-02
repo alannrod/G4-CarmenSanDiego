@@ -3,7 +3,6 @@ package edu.ui.view.runnable
 import org.uqbar.arena.Application
 import org.uqbar.arena.windows.Window
 import edu.ui.view.CarmenSan10.MenuWindow
-import edu.ui.view.CarmenSan10.InicioDelJuegoWindow
 
 class CarmenApplication extends Application{
 	
@@ -16,7 +15,7 @@ class CarmenApplication extends Application{
 	}
  	
 	/**
-	 * cada ves que quieran probar su(s) ventana(s) vengan y cambien aqui
+	 * cada vez que quieran probar su(s) ventana(s) vengan y cambien aqui
 	 * tanto en el createMainWindow como en main y denle run en .star
 	 * 
 	 */

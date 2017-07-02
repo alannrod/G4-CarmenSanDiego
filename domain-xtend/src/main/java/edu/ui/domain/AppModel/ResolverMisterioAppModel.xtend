@@ -3,15 +3,12 @@ package edu.ui.domain.AppModel
 import edu.ui.domain.CarmenSan10.ACME
 import edu.ui.domain.CarmenSan10.Pais
 import edu.ui.domain.CarmenSan10.Villano
-import edu.ui.domain.CarmenSan10.LugarDeInteres
 import edu.ui.domain.CarmenSan10.Caso
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
-import org.uqbar.commons.model.ObservableUtils
 
 @Accessors
 @Observable
-@SuppressWarnings("all")
 class ResolverMisterioAppModel 
 {
 	ACME acme
@@ -87,6 +84,10 @@ class ResolverMisterioAppModel
 	
 	def paisActual(){
 		this.detective.recorrido.last
+	}
+
+	def misExpedientes(){
+		this.acme.villanos
 	}
 	
 }

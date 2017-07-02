@@ -117,7 +117,11 @@ class Detective
 	 */
 	def regresarAlPaisAnterior()
 	{
-		viajarA (recorrido.get(recorrido.size-2))
+		var posicion = recorrido.size -1
+		if (posicion > 0){
+			viajarA (recorrido.get(posicion-1))
+		}
+		
 	}
 	
 	/**

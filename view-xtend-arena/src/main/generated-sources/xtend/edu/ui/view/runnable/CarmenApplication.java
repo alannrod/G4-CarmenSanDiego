@@ -16,7 +16,7 @@ public class CarmenApplication extends Application {
   }
   
   /**
-   * cada ves que quieran probar su(s) ventana(s) vengan y cambien aqui
+   * cada vez que quieran probar su(s) ventana(s) vengan y cambien aqui
    * tanto en el createMainWindow como en main y denle run en .star
    */
   public static void main(final String[] args) {

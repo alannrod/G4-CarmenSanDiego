@@ -3,7 +3,6 @@ package edu.ui.view.CarmenSan10
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 
-import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.windows.Dialog

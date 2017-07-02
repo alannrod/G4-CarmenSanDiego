@@ -21,7 +21,6 @@ class CarmenSan10Dummy
 {
 	Mapamundi mapamundi
 	Expediente expediente
-	
 	Detective doc
 	Caso caso
 	
@@ -103,6 +102,8 @@ class CarmenSan10Dummy
 			hobbies = hobbiesCS
 		]
 		
+
+		
 		val seniasParticularesII = new ArrayList<Caracteristicas>()
 		val seniaII1 = new Caracteristicas("Pelo rubio")
 		val seniaII2 = new Caracteristicas("Maneja un descapotable")
@@ -114,6 +115,7 @@ class CarmenSan10Dummy
 		hobbiesII.add(hobbieII)
 		
 		val villanoII = new Villano("Ivan Igorovich", "Masculino", seniasParticularesII, hobbiesII)
+		
 		
 		expediente = new Expediente
 		expediente.agregarVillano(villanoCS)

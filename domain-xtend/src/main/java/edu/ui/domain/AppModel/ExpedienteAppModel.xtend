@@ -7,14 +7,21 @@ import java.util.List
 import org.uqbar.commons.utils.ApplicationContext
 import java.io.Serializable
 import org.uqbar.commons.utils.Observable
+import edu.ui.domain.Dummy.CarmenSan10Dummy
 
 @Accessors
 @Observable
 class ExpedienteAppModel implements Serializable {
 	//private Expediente expediente
 	Villano selectedVillano
+	List<Villano> villanos
+	private CarmenSan10Dummy datos
 	
-	new(){}
+	new(){
+		this.datos = new CarmenSan10Dummy
+		villanos = datos.expediente.villanos
+	}
+	
 	
 	def getNombreCaso() {
 		
@@ -26,7 +33,7 @@ class ExpedienteAppModel implements Serializable {
 	}
 	
 	def List<Villano> getTodosLosVillanos() {
-		villanosRepo.objects
+		this.villanos
 	}
 	
 	def void setTodosLosPaises(List<Villano> paises){

@@ -4,10 +4,9 @@ import edu.ui.domain.AppModel.LugarInteresAppModel;
 import edu.ui.domain.AppModel.ResolverMisterioAppModel;
 import edu.ui.domain.CarmenSan10.Caso;
 import edu.ui.domain.CarmenSan10.Detective;
-import edu.ui.domain.CarmenSan10.Expediente;
 import edu.ui.domain.CarmenSan10.LugarDeInteres;
 import edu.ui.domain.CarmenSan10.Pais;
-import edu.ui.view.CarmenSan10.ExpedienteWindow;
+import edu.ui.view.CarmenSan10.ExpedientesResolverMisterioView;
 import edu.ui.view.CarmenSan10.LugaresWindow;
 import edu.ui.view.CarmenSan10.OrdenArrestoWindow;
 import edu.ui.view.CarmenSan10.ViajarWindow;
@@ -114,10 +113,8 @@ public class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppM
             it.setCaption("Expedientes");
             final Action _function = new Action() {
               public void execute() {
-                ResolverMisterioAppModel _modelObject = ResolviendoMisterioWindow.this.getModelObject();
-                Expediente _expediente = _modelObject.getExpediente();
-                ExpedienteWindow _expedienteWindow = new ExpedienteWindow(ResolviendoMisterioWindow.this, _expediente);
-                _expedienteWindow.open();
+                ExpedientesResolverMisterioView _expedientesResolverMisterioView = new ExpedientesResolverMisterioView(ResolviendoMisterioWindow.this);
+                _expedientesResolverMisterioView.open();
               }
             };
             it.onClick(_function);
@@ -270,8 +267,7 @@ public class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppM
     Panel _xblockexpression = null;
     {
       ResolverMisterioAppModel _modelObject = this.getModelObject();
-      Detective _detective = _modelObject.getDetective();
-      final List<Pais> pavis = _detective.paisesVisitados();
+      final List<Pais> pavis = _modelObject.recorridoCriminal();
       final String reco = "";
       for (final Pais p : pavis) {
         {

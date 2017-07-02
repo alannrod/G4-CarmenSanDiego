@@ -1,8 +1,6 @@
 package edu.ui.view.CarmenSan10
 
 import edu.ui.domain.AppModel.ResolverMisterioAppModel
-import org.uqbar.arena.layout.HorizontalLayout
-import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
@@ -15,8 +13,6 @@ import org.uqbar.arena.widgets.tables.Table
 import edu.ui.domain.CarmenSan10.Pais
 import org.uqbar.arena.widgets.tables.Column
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import java.util.List
-import java.util.ArrayList
 
 class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppModel>
 {
@@ -68,7 +64,7 @@ class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppModel>
 			
 			new Button(it) => [
 				caption = "Expedientes"
-				onClick ([|new ExpedienteWindow(this, modelObject.expediente).open])
+				onClick ([|new ExpedientesResolverMisterioView(this).open])
 			]
 			
 		]
@@ -138,7 +134,7 @@ class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppModel>
 	}
 	
 	def imprimirRecorrido(Panel panel) {
-		val pavis = this.modelObject.detective.paisesVisitados()
+		val pavis =  modelObject.recorridoCriminal//this.modelObject.detective.paisesVisitados()
 		val reco = ""
 		for (p : pavis)
 		{

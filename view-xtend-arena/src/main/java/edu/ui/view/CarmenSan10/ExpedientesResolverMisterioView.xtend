@@ -13,113 +13,128 @@ import org.uqbar.arena.widgets.Label
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import edu.ui.domain.AppModel.ExpedienteAppModel
 
-class ExpedientesResolverMisterioView extends SimpleWindow<ExpedienteAppModel> {
+class ExpedientesResolverMisterioView extends ExpedienteMenuDeAccionesView {
 	
 	new (WindowOwner parent){
-		super(parent,new ExpedienteAppModel)
+		super(parent)
 	}
 	
-	override protected addActions(Panel actionsPanel) {
-		// no tiene acciones para resolver misterio
+	override def String tituloDeLaVentana(){
+		"Resolviendo el Misterio - expedientes"
 	}
 	
-	override def createMainTemplate (Panel mainPanel){
-		title = "Resolviendo: misterio - Expedientes"
-		super.createMainTemplate(mainPanel)
+	override def crearPanelDeOpciones(Panel panelIzq) {
+		//no hacer nada
+	}
 
-	}
-	
-	override protected createFormPanel(Panel mainPanel) {
-		val panelDividido = new Panel (mainPanel) =>[
-			layout = new ColumnLayout (2)
-		]
-		//a este panel lo divido en dos uno para la tabla y el otro para las demas cosas 
-		this.createLeftPanel(panelDividido)
-		// en este panel llevara la tabla de villanos
-		this.createRightPanel (panelDividido)
-		// este panel pondre los demas chiches...
-	}
-	
-	
-	def createLeftPanel(Panel panelPadre) {
-		val panelIzquierdo = new Panel (panelPadre)=>[
-			layout = new VerticalLayout // es el layout por defecto
-		]
-		
-		var table = new Table<Villano>(panelIzquierdo, typeof(Villano)) => [
-			height = 200 //ni idea
-			width = 450  //tampoco
-			bindItemsToProperty("villanos")
-			bindValueToProperty("selectedVillano")
-		]
-			
-		new Column<Villano>(table) => [
-			title = "Villano"
-			fixedSize = 150 // ni idea
-			bindContentsToProperty("nombre")//bindeamos al nombre del villano en cuestion
-		]
-	
-	}
-	
-	def createRightPanel(Panel panelPadre) {
-		val panelDerecho = new Panel (panelPadre)
-		this.crearPanelDetallesVillano (panelDerecho)
-		new Label (panelDerecho) => [
-			text = "Señas Particulares"
-			//foreground = Color.BLUE // detalle para mas adelante
-		]
-		// luego pongo la tabla
-		var tablaDeArriba = new Table<Villano>(panelDerecho, typeof(Villano)) => [
-			height = 200 //ni idea
-			width = 450  //tampoco
-			bindItemsToProperty("señas")
-			bindValueToProperty("selectedSeña")
-		]
-			
-		new Column<Villano>(tablaDeArriba) => [
-			title = "Seña"
-			fixedSize = 150 // ni idea
-			bindContentsToProperty("razgosParticulares")//bindeamos a la seña del villano en cuestion
-		]
-		
-		new Label (panelDerecho) => [
-			text = "Hobbies"
-			//foreground = Color.BLUE // detalle para mas adelante
-		]
-		// ahora la otra tabla
-		var tablaDeAbajo = new Table<Villano>(panelDerecho, typeof(Villano)) => [
-			height = 200 //ni idea
-			width = 450  //tampoco
-			bindItemsToProperty("hobbies")
-			bindValueToProperty("selectedHobbie")
-		]
-			
-		new Column<Villano>(tablaDeAbajo) => [
-			title = "Hobbie"
-			fixedSize = 150 // ni idea
-			bindContentsToProperty("hobbie")//bindeamos al nombre del villano en cuestion
-		]
-	}
-	
-	def crearPanelDetallesVillano(Panel panelDependiente) {
-		val detallesPanel = new Panel (panelDependiente)=> [
-			layout = new ColumnLayout(2)
-		]
-		new Label (detallesPanel) => [
-			text = "Nombre"
-			//foreground = Color.BLUE // detalle para mas adelante
-		]
-		new Label (detallesPanel) => [
-			value <=> "nombre"
-		]
-		new Label (detallesPanel) => [
-			text = "Sexo"
-			//foreground = Color.BLUE // detalle para mas adelante
-		]
-		new Label (detallesPanel) => [
-			value <=> "sexo"
-		]
-	}
-	
+
+//class ExpedientesResolverMisterioView extends SimpleWindow<ExpedienteAppModel> {
+//	
+//	new (WindowOwner parent){
+//		super(parent,new ExpedienteAppModel)
+//	}
+//	
+//	override protected addActions(Panel actionsPanel) {
+//		// no tiene acciones para resolver misterio
+//	}
+//	
+//	override def createMainTemplate (Panel mainPanel){
+//		title = "Resolviendo: misterio - Expedientes"
+//		super.createMainTemplate(mainPanel)
+//
+//	}
+//	
+//	override protected createFormPanel(Panel mainPanel) {
+//		val panelDividido = new Panel (mainPanel) =>[
+//			layout = new ColumnLayout (2)
+//		]
+//		//a este panel lo divido en dos uno para la tabla y el otro para las demas cosas 
+//		this.createLeftPanel(panelDividido)
+//		// en este panel llevara la tabla de villanos
+//		this.createRightPanel (panelDividido)
+//		// este panel pondre los demas chiches...
+//	}
+//	
+//	
+//	def createLeftPanel(Panel panelPadre) {
+//		val panelIzquierdo = new Panel (panelPadre)=>[
+//			layout = new VerticalLayout // es el layout por defecto
+//		]
+//		
+//		var table = new Table<Villano>(panelIzquierdo, typeof(Villano)) => [
+//			height = 200 //ni idea
+//			width = 450  //tampoco
+//			bindItemsToProperty("villanos")
+//			bindValueToProperty("selectedVillano")
+//		]
+//			
+//		new Column<Villano>(table) => [
+//			title = "Villano"
+//			fixedSize = 150 // ni idea
+//			bindContentsToProperty("nombre")//bindeamos al nombre del villano en cuestion
+//		]
+//	
+//	}
+//	
+//	def createRightPanel(Panel panelPadre) {
+//		val panelDerecho = new Panel (panelPadre)
+//		this.crearPanelDetallesVillano (panelDerecho)
+//		new Label (panelDerecho) => [
+//			text = "Señas Particulares"
+//			//foreground = Color.BLUE // detalle para mas adelante
+//		]
+//		// luego pongo la tabla
+//		var tablaDeArriba = new Table<Villano>(panelDerecho, typeof(Villano)) => [
+//			height = 200 //ni idea
+//			width = 450  //tampoco
+//			bindItemsToProperty("señas")
+//			bindValueToProperty("selectedSeña")
+//		]
+//			
+//		new Column<Villano>(tablaDeArriba) => [
+//			title = "Seña"
+//			fixedSize = 150 // ni idea
+//			bindContentsToProperty("razgosParticulares")//bindeamos a la seña del villano en cuestion
+//		]
+//		
+//		new Label (panelDerecho) => [
+//			text = "Hobbies"
+//			//foreground = Color.BLUE // detalle para mas adelante
+//		]
+//		// ahora la otra tabla
+//		var tablaDeAbajo = new Table<Villano>(panelDerecho, typeof(Villano)) => [
+//			height = 200 //ni idea
+//			width = 450  //tampoco
+//			bindItemsToProperty("hobbies")
+//			bindValueToProperty("selectedHobbie")
+//		]
+//			
+//		new Column<Villano>(tablaDeAbajo) => [
+//			title = "Hobbie"
+//			fixedSize = 150 // ni idea
+//			bindContentsToProperty("hobbie")//bindeamos al nombre del villano en cuestion
+//		]
+//	}
+//	
+//	def crearPanelDetallesVillano(Panel panelDependiente) {
+//		val detallesPanel = new Panel (panelDependiente)=> [
+//			layout = new ColumnLayout(2)
+//		]
+//		new Label (detallesPanel) => [
+//			text = "Nombre"
+//			//foreground = Color.BLUE // detalle para mas adelante
+//		]
+//		new Label (detallesPanel) => [
+//			value <=> "nombre"
+//		]
+//		new Label (detallesPanel) => [
+//			text = "Sexo"
+//			//foreground = Color.BLUE // detalle para mas adelante
+//		]
+//		new Label (detallesPanel) => [
+//			value <=> "sexo"
+//		]
+//	}
+//	
 	
 }

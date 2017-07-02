@@ -1,11 +1,9 @@
 package edu.ui.view.CarmenSan10
 
 import org.uqbar.arena.windows.SimpleWindow
-import edu.ui.domain.AppModel.MapamundiAppModel
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Button
-import org.uqbar.arena.layout.HorizontalLayout
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.Label
@@ -13,7 +11,6 @@ import edu.ui.domain.AppModel.ResolverMisterioAppModel
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.widgets.tables.Column
 import edu.ui.domain.CarmenSan10.Pais
-import org.uqbar.arena.bindings.NotNullObservable
 import org.uqbar.arena.layout.ColumnLayout
 
 class ViajarWindow extends SimpleWindow<ResolverMisterioAppModel>{
@@ -66,18 +63,25 @@ class ViajarWindow extends SimpleWindow<ResolverMisterioAppModel>{
 			layout = new ColumnLayout(2)
 			new Button(it) => [
 				caption = "Volver al Pais anterior"
-				onClick ([|this.modelObject.regresarAlPaisAnterior])
+				onClick ([|dosAcciones("Volver")])
 			]
 			new Button(it) => [
 				caption = "Viajar"
-				onClick ([|this.modelObject.viajar])
+				onClick ([|dosAcciones("Viajar")])
 			]
 			
 		]
 	}
 	
-	def dosAcciones() {
-		//this.modelObject.ordenDeArresto
+	def dosAcciones(String accion) {
+		if (accion == "Viajar"){
+			this.modelObject.viajar
+		}
+		else{
+			if (accion == "Volver"){
+				this.modelObject.regresarAlPaisAnterior
+			}
+		}
 		this.close
 	}
 	

@@ -20,7 +20,11 @@ class ExpedienteMenuDeAccionesView extends SimpleWindow<ExpedienteAppModel> {
 	
 	new(WindowOwner parent) {
 		super(parent, new ExpedienteAppModel)
-		title = "Expedientes"
+		title = tituloDeLaVentana
+	}
+	
+	def tituloDeLaVentana() {
+		"Expedientes"
 	}
 	
 	override protected addActions(Panel mainPanel) {

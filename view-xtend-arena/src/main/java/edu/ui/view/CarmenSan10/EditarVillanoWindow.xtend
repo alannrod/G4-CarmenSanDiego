@@ -10,6 +10,8 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.aop.windows.TransactionalDialog
+import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
+import edu.ui.domain.CarmenSan10.Caracteristicas
 
 class EditarVillanoWindow extends TransactionalDialog<Villano>
 {	
@@ -36,7 +38,7 @@ class EditarVillanoWindow extends TransactionalDialog<Villano>
 			]
 			
 			new TextBox(editItem) => [
-				//value <=> "itemSeleccionado.nombre"
+				value <=> "nombre"
 				width = 200
 			]
 			
@@ -45,7 +47,7 @@ class EditarVillanoWindow extends TransactionalDialog<Villano>
 			]
 			
 			new TextBox(editItem) => [
-				//value <=> "itemSeleccionado.sexo"
+				value <=> "sexo"
 				width = 200
 			]
 			
@@ -55,13 +57,14 @@ class EditarVillanoWindow extends TransactionalDialog<Villano>
 			
 			new Button(editItem) => [
 				caption = "Editar Señas Particulares"
-				//onClick([| this.editarSeniasParticulares])
+				onClick([| new EditarSenia(this,this.modelObject).open])
 			]
 			
-			val tableSenias = new Table<Villano>(it, typeof(Villano)) => [
-				new Column<Villano>(it) => [
+			val tableSenias = new Table<Caracteristicas>(it, typeof(Caracteristicas)) => [
+				items <=> "seniasParticulares"
+				new Column<Caracteristicas>(it) => [
 					title = "Seña"
-					//bindContentsToProperty("villano.seniaParticular")
+					bindContentsToProperty("nombre")
 				]
 			]
 			
@@ -75,13 +78,14 @@ class EditarVillanoWindow extends TransactionalDialog<Villano>
 			
 			new Button(editItem2) => [
 				caption = "Editar Hobbies"
-				//onClick([| this.editarHobbies])
+				onClick([| new EditarHobbies(this,this.modelObject).open])
 			]
 			
-			val tableHobbies = new Table<Villano>(it, typeof(Villano)) => [
-				new Column<Villano>(it) => [
+			val tableHobbies = new Table<Caracteristicas>(it, typeof(Caracteristicas)) => [
+				items <=> "hobbies"
+				new Column<Caracteristicas>(it) => [
 					title = "Hobbie"
-					//bindContentsToProperty("villano.hobbie")
+					bindContentsToProperty("nombre")
 				]
 			]
 		]
