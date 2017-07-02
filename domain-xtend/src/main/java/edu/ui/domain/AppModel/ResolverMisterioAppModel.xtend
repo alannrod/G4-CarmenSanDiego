@@ -83,4 +83,8 @@ class ResolverMisterioAppModel
 		this.acme.villanos
 	}
 	
+	def paisActual(){
+		this.detective.recorrido.last
+	}
+	
 }
