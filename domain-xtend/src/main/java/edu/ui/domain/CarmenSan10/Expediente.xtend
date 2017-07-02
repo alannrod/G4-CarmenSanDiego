@@ -164,5 +164,9 @@ class Expediente
 		villano.id
 	}
 	
+	def malotes(){
+		this.villanos
+	}
+	
 	
 }

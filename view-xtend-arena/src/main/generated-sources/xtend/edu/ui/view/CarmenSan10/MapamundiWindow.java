@@ -96,7 +96,8 @@ public class MapamundiWindow extends SimpleWindow<MapamundiAppModel> {
             it.setCaption("Eliminar");
             final Action _function = new Action() {
               public void execute() {
-                MapamundiWindow.this.getModelObject().eliminarPaisSeleccionado();
+                MapamundiAppModel _modelObject = MapamundiWindow.this.getModelObject();
+                _modelObject.eliminarPaisSeleccionado();
               }
             };
             it.onClick(_function);
@@ -136,7 +137,8 @@ public class MapamundiWindow extends SimpleWindow<MapamundiAppModel> {
   }
   
   public void editarPais() {
-    Pais _itemSeleccionado = this.getModelObject().getItemSeleccionado();
+    MapamundiAppModel _modelObject = this.getModelObject();
+    Pais _itemSeleccionado = _modelObject.getItemSeleccionado();
     EditarPaisWindows _editarPaisWindows = new EditarPaisWindows(this, _itemSeleccionado);
     this.openDialog(_editarPaisWindows);
   }
@@ -149,7 +151,8 @@ public class MapamundiWindow extends SimpleWindow<MapamundiAppModel> {
   public void openDialog(final Dialog<?> dialog) {
     final Action _function = new Action() {
       public void execute() {
-        MapamundiWindow.this.getModelObject().search();
+        MapamundiAppModel _modelObject = MapamundiWindow.this.getModelObject();
+        _modelObject.search();
       }
     };
     dialog.onAccept(_function);

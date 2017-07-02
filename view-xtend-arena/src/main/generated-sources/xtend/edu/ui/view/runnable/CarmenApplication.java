@@ -21,6 +21,7 @@ public class CarmenApplication extends Application {
    */
   public static void main(final String[] args) {
     CarmenBootstrap _carmenBootstrap = new CarmenBootstrap();
-    new CarmenApplication(_carmenBootstrap).start();
+    CarmenApplication _carmenApplication = new CarmenApplication(_carmenBootstrap);
+    _carmenApplication.start();
   }
 }

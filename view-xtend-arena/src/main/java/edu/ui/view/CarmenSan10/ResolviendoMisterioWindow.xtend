@@ -11,6 +11,12 @@ import org.uqbar.arena.windows.WindowOwner
 import edu.ui.domain.AppModel.LugarInteresAppModel
 import org.uqbar.arena.layout.ColumnLayout
 import edu.ui.domain.CarmenSan10.LugarDeInteres
+import org.uqbar.arena.widgets.tables.Table
+import edu.ui.domain.CarmenSan10.Pais
+import org.uqbar.arena.widgets.tables.Column
+import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
+import java.util.List
+import java.util.ArrayList
 
 class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppModel>
 {
@@ -92,12 +98,15 @@ class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppModel>
 	}
 	
 	def crearPanelDerecho(Panel panel) {
+		val losLugares = this.modelObject.detective.ubicacionActual.lugares
 		new Panel(panel) => [
 			new Label(it) => [
 				fontSize = 10
-				text = "Lugares0"
+				text = "Lugares"
 			]
-			//botonLugar(it,this.modelObject.detective.recorrido.last.lugares.findFirst[])
+			botonLugar(it,losLugares.get(0))
+			botonLugar(it,losLugares.get(1))
+			botonLugar(it,losLugares.get(2))
 		]
 	}
 	
@@ -114,8 +123,51 @@ class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppModel>
 
 	
 	def crearPanelInformacion(Panel panel) {
-//		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		new Panel(panel) => [
+			new Label(it) => [
+				fontSize = 10
+				text = "Recorrido criminal:"
+			]
+			imprimirRecorrido(it)
+			new Label(it) => [
+				fontSize = 10
+				text = "Destinos fallidos:"
+			]
+			tablaDeDestinos(it)
+		]
 	}
+	
+	def imprimirRecorrido(Panel panel) {
+		val pavis = this.modelObject.detective.paisesVisitados()
+		val reco = ""
+		for (p : pavis)
+		{
+			reco.concat(p.nombrePais.toUpperCase)
+			reco.concat(" <- ")
+		}
+		
+		new Panel(panel) => [
+			new Label(it) => [
+				fontSize = 10
+				text = reco
+			]
+		]
+	}
+	
+	def tablaDeDestinos(Panel panel){ 
+		val table = new Table<Pais>(panel, typeof(Pais)) => [
+			items <=> "paisesFallidos"
+			value <=> "paisSeleccionado"
+		]
+		new Column<Pais>(table) => [
+			title = "Pais"
+			fixedSize = 150
+			bindContentsToProperty("nombrePais")
+		]
+	
+	}
+	
+
 	
 	
 //	override createFormPanel(Panel mainPanel) 

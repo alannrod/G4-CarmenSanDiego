@@ -8,9 +8,10 @@ import edu.ui.domain.Exceptions.YaExisteElHobbieException
 import org.uqbar.commons.utils.TransactionalAndObservable
 import java.util.Random
 import org.apache.commons.lang.StringUtils
+import org.uqbar.commons.utils.Observable
 
 @Accessors
-@TransactionalAndObservable
+@Observable
 class Villano extends Ocupante {
 	
 	Integer id

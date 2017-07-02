@@ -154,6 +154,7 @@ class CarmenSan10Dummy
 		  */
 		doc = new Detective()
 		doc.recorrido.add(argentina)
+		doc.ordenarArresto(villanoCS)
 
 		
 	}

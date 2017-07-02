@@ -17,7 +17,9 @@ import org.uqbar.lacar.ui.model.Action;
 public class InicioDelJuegoWindow extends SimpleWindow<CasoAppModel> {
   public InicioDelJuegoWindow(final WindowOwner parent) {
     super(parent, new CasoAppModel());
-    this.setTitle(this.getModelObject().titulo());
+    CasoAppModel _modelObject = this.getModelObject();
+    String _titulo = _modelObject.titulo();
+    this.setTitle(_titulo);
   }
   
   protected void addActions(final Panel mainPanel) {
@@ -60,7 +62,9 @@ public class InicioDelJuegoWindow extends SimpleWindow<CasoAppModel> {
         Label _label = new Label(it);
         final Procedure1<Label> _function = new Procedure1<Label>() {
           public void apply(final Label it) {
-            it.setText(InicioDelJuegoWindow.this.getModelObject().descripcion());
+            CasoAppModel _modelObject = InicioDelJuegoWindow.this.getModelObject();
+            String _descripcion = _modelObject.descripcion();
+            it.setText(_descripcion);
             it.setFontSize(11);
           }
         };

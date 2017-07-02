@@ -79,9 +79,9 @@ class ACME
 		caso.objetoDelRobo
 	}
 	
-	def detectiveEnviarOrdenDeArresto() 
+	def detectiveEnviarOrdenDeArresto(Villano especifico) 
 	{
-		resolvedorDeCasos.ordenDeArresto
+		resolvedorDeCasos.ordenarArresto(especifico)
 	}
 	
 	def detectiveRegresarAlPaisAnterior() 
@@ -97,6 +97,10 @@ class ACME
 	def nombreDeLosVillanos() 
 	{
 		villanos.nombreDeLosVillanos()
+	}
+	
+	def misVillanos(){
+		villanos.malotes
 	}
 	
 }

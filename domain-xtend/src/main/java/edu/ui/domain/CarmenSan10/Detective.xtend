@@ -170,7 +170,7 @@ class Detective
 		caso.mostrarPista(ubicacionActual, lugar)
 	}
 	
-	def paisesVisitados(List<Pais> pais) 
+	def paisesVisitados() 
 	{	
 		val visitados = new ArrayList<Pais>()
 		
@@ -181,10 +181,10 @@ class Detective
 		}
 		
 		// Saca el pais en donde me encuentro
-		visitados.remove(visitados.size-1)
+		//visitados.remove(visitados.size-1)
 		
 		// Sacar los paises fallidos
-		visitados.filter[p | p.estaDentroDelRecorrido(pais)].toList
+		visitados.filter[p | p.estaDentroDelRecorrido(recorrido)].toList
 	}
 	
 	def agregarSiPuede(ArrayList<Pais> paises, Pais pais) 

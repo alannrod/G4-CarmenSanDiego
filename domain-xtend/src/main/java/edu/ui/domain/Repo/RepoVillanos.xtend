@@ -5,7 +5,9 @@ import edu.ui.domain.CarmenSan10.Villano
 import org.apache.commons.collections15.Predicate
 import java.util.List
 import edu.ui.domain.CarmenSan10.Caracteristicas
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class RepoVillanos extends CollectionBasedRepo<Villano>{
 	
 	def Villano create(String nombreVi, String sexoVi, List<Caracteristicas> senias, List<Caracteristicas> hobbiesVi) {

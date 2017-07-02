@@ -5,7 +5,11 @@ import edu.ui.domain.CarmenSan10.Pais
 import edu.ui.domain.CarmenSan10.Villano
 import edu.ui.domain.CarmenSan10.LugarDeInteres
 import edu.ui.domain.CarmenSan10.Caso
+import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.utils.Observable
 
+@Accessors
+@Observable
 class ResolverMisterioAppModel 
 {
 	ACME acme
@@ -52,7 +56,7 @@ class ResolverMisterioAppModel
 	
 	def ordenDeArresto()
 	{
-		acme.detectiveEnviarOrdenDeArresto
+		acme.detectiveEnviarOrdenDeArresto(villanoSeleccionado)
 	}
 	
 	def regresarAlPaisAnterior() 
@@ -65,26 +69,18 @@ class ResolverMisterioAppModel
 		acme.detectiveViajaA(paisSeleccionado)
 	}
 	
-	def LugarDeInteres el1erLugarDeInteres() {
-		// devuelve el 1er lugar de interes
-		paisSeleccionado.lugares.findFirst[]
-	}
-	
-	def LugarDeInteres el2doLugarDeInteres() 
-	{
-		//accedo arbitrariamente al segundo lugar de interes
-		paisSeleccionado.lugares.get(1)
-	}
-	
-	def LugarDeInteres el3erLugarDeInteres() 
-	{
-		//busca el ultimo lugar de interes
-		paisSeleccionado.lugares.findLast[]
-	}
 	
 	def recorridoCriminal()
 	{
 		acme.caso.planDeEscape
+	}
+	
+	def paisesFallidos(){
+		this.detective.destinosFallidos(acme.caso.planDeEscape)
+	}
+	
+	def villanos(){
+		this.acme.villanos
 	}
 	
 }
