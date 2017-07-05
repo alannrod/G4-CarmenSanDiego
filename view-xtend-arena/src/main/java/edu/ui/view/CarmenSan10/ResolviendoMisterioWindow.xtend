@@ -13,6 +13,7 @@ import org.uqbar.arena.widgets.tables.Table
 import edu.ui.domain.CarmenSan10.Pais
 import org.uqbar.arena.widgets.tables.Column
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
+import org.uqbar.arena.layout.HorizontalLayout
 
 class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppModel>
 {
@@ -86,12 +87,22 @@ class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppModel>
 	def infoOrden(Panel panel) {
 	
 		new Panel(panel) => [
+			layout = new HorizontalLayout()
 			new Label(it) => [
 				fontSize = 10
-				text = "Orden ya emitida: ".concat(this.modelObject.detective.ordenDeArresto)
+				text = "Orden ya emitida: "
+				
+				]
+			new Label(it) => [
+				fontSize = 10
+				value <=> "buscado"
+			
 			]
+			
 		]
 	}
+	
+	
 	
 	def crearPanelDerecho(Panel panel) {
 		val losLugares = this.modelObject.detective.ubicacionActual.lugares

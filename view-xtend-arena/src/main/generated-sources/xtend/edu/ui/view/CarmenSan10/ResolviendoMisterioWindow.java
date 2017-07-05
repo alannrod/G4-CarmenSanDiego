@@ -15,6 +15,7 @@ import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.uqbar.arena.bindings.ObservableValue;
 import org.uqbar.arena.layout.ColumnLayout;
+import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Control;
 import org.uqbar.arena.widgets.Label;
@@ -159,18 +160,25 @@ public class ResolviendoMisterioWindow extends SimpleWindow<ResolverMisterioAppM
     Panel _panel = new Panel(panel);
     final Procedure1<Panel> _function = new Procedure1<Panel>() {
       public void apply(final Panel it) {
+        HorizontalLayout _horizontalLayout = new HorizontalLayout();
+        it.setLayout(_horizontalLayout);
         Label _label = new Label(it);
         final Procedure1<Label> _function = new Procedure1<Label>() {
           public void apply(final Label it) {
             it.setFontSize(10);
-            ResolverMisterioAppModel _modelObject = ResolviendoMisterioWindow.this.getModelObject();
-            Detective _detective = _modelObject.getDetective();
-            String _ordenDeArresto = _detective.getOrdenDeArresto();
-            String _concat = "Orden ya emitida: ".concat(_ordenDeArresto);
-            it.setText(_concat);
+            it.setText("Orden ya emitida: ");
           }
         };
         ObjectExtensions.<Label>operator_doubleArrow(_label, _function);
+        Label _label_1 = new Label(it);
+        final Procedure1<Label> _function_1 = new Procedure1<Label>() {
+          public void apply(final Label it) {
+            it.setFontSize(10);
+            ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
+            ArenaXtendExtensions.operator_spaceship(_value, "buscado");
+          }
+        };
+        ObjectExtensions.<Label>operator_doubleArrow(_label_1, _function_1);
       }
     };
     return ObjectExtensions.<Panel>operator_doubleArrow(_panel, _function);

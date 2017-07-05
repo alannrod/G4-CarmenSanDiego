@@ -6,20 +6,22 @@ import edu.ui.domain.Repo.RepoMapamundi
 import edu.ui.domain.CarmenSan10.Pais
 import edu.ui.domain.CarmenSan10.Villano
 import edu.ui.domain.Repo.RepoVillanos
-import edu.ui.domain.CarmenSan10.LugarDeInteres
 import edu.ui.domain.CarmenSan10.Caracteristicas
 import edu.ui.domain.CarmenSan10.Banco
 import edu.ui.domain.CarmenSan10.Biblioteca
 import edu.ui.domain.CarmenSan10.Club
+import edu.ui.domain.Dummy.CarmenSan10Dummy
 
 class CarmenBootstrap extends CollectionBasedBootstrap{
 	
 	new() {
+		ApplicationContext.instance.configureSingleton(typeof(CarmenSan10Dummy), new  CarmenSan10Dummy )
 		ApplicationContext.instance.configureSingleton(typeof(Pais), new RepoMapamundi)
 		ApplicationContext.instance.configureSingleton(typeof(Villano), new RepoVillanos)
 	}
 	
 	override run() {
+		
 		val repoMapamundi = ApplicationContext.instance.getSingleton(typeof(Pais)) as RepoMapamundi
 		val repoVillanos = ApplicationContext.instance.getSingleton(typeof(Villano)) as RepoVillanos
 		

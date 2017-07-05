@@ -18,7 +18,7 @@ class ExpedienteAppModel implements Serializable {
 	private CarmenSan10Dummy datos
 	
 	new(){
-		this.datos = new CarmenSan10Dummy
+		this.datos = ApplicationContext.instance.getSingleton(typeof(CarmenSan10Dummy))
 		villanos = datos.expediente.villanos
 	}
 	
