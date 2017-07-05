@@ -12,17 +12,9 @@ import edu.ui.domain.CarmenSan10.Caracteristicas
 class PaisAppModel implements Serializable{
 	
 	String featureSelected
-	//LugarDeInteres lugarSelected
 	Pais paisSelected
 	Pais itemSeleccionado
 	Caracteristicas nueva = new Caracteristicas
-	
-	/**
-	 * String nombrePais
-	 * List<String> caracteristicaPais	
-	 * List<LugarInteres> lugares	
-	 * List<Pais> paisesConexionAerea
-	 */
 	
 	new(Pais pais) {
 		paisSelected = pais

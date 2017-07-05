@@ -2,10 +2,8 @@ package edu.ui.domain.CarmenSan10
 
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
-import java.util.ArrayList
 import edu.ui.domain.Exceptions.YaExisteLaSeniaParticularException
 import edu.ui.domain.Exceptions.YaExisteElHobbieException
-import org.uqbar.commons.utils.TransactionalAndObservable
 import java.util.Random
 import org.apache.commons.lang.StringUtils
 import org.uqbar.commons.utils.Observable
@@ -205,28 +203,6 @@ class Villano extends Ocupante {
 		hobbies = nuevosHobbies
 	}
 	
-	def static void main(String[] args) {
-		
-		val senia01_Julian = new Caracteristicas("Tiene el pelo azul.")
-		val senia02_Julian = new Caracteristicas("Se rasca la oreja de forma extraña.")
-		//val senia03_Julian = new Caracteristicas("")
-		
-		val hobbie01_Julian = new Caracteristicas("Plantar tomate.")
-		val hobbie02_Julian = new Caracteristicas("Comer chupentines.")
-		//val hobbie03_Julian = new Caracteristicas("")
-		
-		val Villano nn = new Villano() => [ 
-			nombre = "Julian"
-			seniasParticulares = #[senia01_Julian, senia02_Julian]
-			hobbies = #[hobbie01_Julian, hobbie02_Julian]
-		]
-		
-		//var pistas = nn.dar2PistasSeniasParticulares
-		
-		println("señas particulares = " + nn.seniasParticulares.size)
-		println("hobbies = " + nn.hobbies.size)
-		println(nn.dar2PistasSeniasParticulares)
-		
-	}
+	
 	
 }

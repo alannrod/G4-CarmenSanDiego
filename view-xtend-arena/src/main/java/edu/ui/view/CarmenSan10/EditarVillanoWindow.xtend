@@ -60,7 +60,7 @@ class EditarVillanoWindow extends TransactionalDialog<Villano>
 				onClick([| new EditarSenia(this,this.modelObject).open])
 			]
 			
-			val tableSenias = new Table<Caracteristicas>(it, typeof(Caracteristicas)) => [
+			new Table<Caracteristicas>(it, typeof(Caracteristicas)) => [
 				items <=> "seniasParticulares"
 				new Column<Caracteristicas>(it) => [
 					title = "Seña"
@@ -81,7 +81,7 @@ class EditarVillanoWindow extends TransactionalDialog<Villano>
 				onClick([| new EditarHobbies(this,this.modelObject).open])
 			]
 			
-			val tableHobbies = new Table<Caracteristicas>(it, typeof(Caracteristicas)) => [
+			new Table<Caracteristicas>(it, typeof(Caracteristicas)) => [
 				items <=> "hobbies"
 				new Column<Caracteristicas>(it) => [
 					title = "Hobbie"

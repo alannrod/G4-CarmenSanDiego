@@ -13,9 +13,5 @@ class NuevoPaisWindow extends EditarPaisWindows{
 		"Mapamundi - Nuevo Pais"
 	}
 	
-//	override def realizarCambios() 
-//	{
-//		// Agregar al pais seleccionado en mapamundi
-//		this.close()
-//	}
+
 }

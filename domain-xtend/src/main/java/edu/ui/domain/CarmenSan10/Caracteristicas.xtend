@@ -16,7 +16,6 @@ class Caracteristicas {
 		nombre = caracteristica
 	}
 	
-//	def getNombreCaracteristicas() {
-//		nombre
-//	}
+
+
 }

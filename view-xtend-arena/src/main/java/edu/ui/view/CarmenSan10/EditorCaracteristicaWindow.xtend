@@ -9,7 +9,6 @@ import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import org.uqbar.arena.widgets.TextBox
 import edu.ui.domain.CarmenSan10.Caracteristicas
 
 class EditorCaracteristicaWindow extends EditorSuperConexion {

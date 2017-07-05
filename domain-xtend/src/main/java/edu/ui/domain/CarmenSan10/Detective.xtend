@@ -9,8 +9,6 @@ import org.uqbar.commons.utils.Observable
 
 @Observable
 @Accessors
-// Con el @Data no solo crea los geters y seter.
-// sino tambien un new con todas las variables internas para cargar por parametros.
 
 class Detective 
 {
@@ -18,8 +16,6 @@ class Detective
 	private var List<Pais> destinosFallidos
 	private var String ordenDeArresto
 	List<LugarDeInteres> lugaresVisitados // puede que no lo necesite.
-	// lugaresVisitados estaba pensado para que pueda consultar la pista correspondiente al ultimo lugar que estoy visitando...
-	// pero es mejro esperar a que me lo pasen por aprametro que tenerlo guardado.
 	
 	/**
 	 * @Propósito: Crea un Detective.
@@ -176,20 +172,18 @@ class Detective
 	}
 	
 	def paisesVisitados() 
-	{	
-		val visitados = new ArrayList<Pais>()
-		
-		// SacarLosPaisesRepetidos
-		for (p : recorrido)
-		{
-			agregarSiPuede(visitados, p)
-		}
-		
-		// Saca el pais en donde me encuentro
-		//visitados.remove(visitados.size-1)
-		
-		// Sacar los paises fallidos
-		visitados.filter[p | p.estaDentroDelRecorrido(recorrido)].toList
+	{
+		return recorrido	
+//		val visitados = new ArrayList<Pais>()
+//		
+//		// SacarLosPaisesRepetidos
+//		for (p : recorrido)
+//		{
+//			agregarSiPuede(visitados, p)
+//		}
+//		
+//		return visitados
+		//visitados.filter[p | p.estaDentroDelRecorrido(recorrido)].toList
 	}
 	
 	def agregarSiPuede(ArrayList<Pais> paises, Pais pais) 

@@ -16,7 +16,7 @@ class CarmenApplication extends Application{
  	
 	/**
 	 * cada vez que quieran probar su(s) ventana(s) vengan y cambien aqui
-	 * tanto en el createMainWindow como en main y denle run en .star
+	 * tanto en el createMainWindow como en main y denle run en .start
 	 * 
 	 */
 	
